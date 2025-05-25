@@ -1,31 +1,57 @@
 import streamlit as st
 
-# Page config
-st.set_page_config(page_title="Balaji R - Resume", layout="wide")
+# --- PAGE CONFIG ---
+st.set_page_config(page_title="Balaji R - Data Analyst/Data Engineer Resume", layout="wide")
 
-# Sidebar for navigation
+# --- CUSTOM CSS for background and sidebar ---
+st.markdown("""
+    <style>
+        body {
+            background-color: #f4f6f8;
+        }
+        .css-1d391kg {  /* Sidebar header style */
+            font-size: 24px !important;
+            font-weight: 600 !important;
+            color: #333333 !important;
+        }
+        .css-10trblm {  /* Main header font */
+            color: #2c3e50 !important;
+        }
+        .block-container {
+            padding-top: 2rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# --- NAVIGATION ---
+st.sidebar.title("📂 Navigate")
 sections = [
     "Profile Summary", "Professional Experience", "Key Skills",
     "Academic Projects", "Certifications & Hackathons", "Education", "Achievements"
 ]
-st.sidebar.title("Navigate")
-selected_section = st.sidebar.radio("Go to", sections)
+selected_section = st.sidebar.radio("", sections)
 
-# Downloadable resume file
+# --- RESUME DOWNLOAD ---
 with open("BalajiR_Resume.docx", "rb") as file:
     st.sidebar.download_button(
-        label="📥 Download Resume (DOCX)",
+        label="📥 Download Resume",
         data=file,
         file_name="BalajiR_Resume.docx",
         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
 
-# Header section
-st.title("Balaji R")
-st.write("📍 Chennai, India | 📞 +91 63852 16638 | 📧 balajibalaji036@gmail.com")
-st.write("[GitHub](https://github.com/Balaji036) | [Kaggle](https://www.kaggle.com/balaji036) | [LinkedIn](https://www.linkedin.com/in/balajiraja28/)")
+# --- MAIN HEADER ONLY ON FIRST PAGE ---
+if selected_section == "Profile Summary":
+    st.title("Balaji R")
+    st.markdown("""
+    📍 Chennai, India  
+    📞 +91 63852 16638  
+    📧 balajibalaji036@gmail.com  
 
-# Content sections
+    🔗 [GitHub](https://github.com/Balaji036) | [Kaggle](https://www.kaggle.com/balaji036) | [LinkedIn](https://www.linkedin.com/in/balajiraja28/)
+    """)
+
+# --- CONTENT SECTIONS ---
 if selected_section == "Profile Summary":
     st.header("Profile Summary")
     st.write("""
@@ -103,4 +129,3 @@ elif selected_section == "Achievements":
     - Dream Winner – Q2 2024 (Top Performer of the Quarter)  
     - 5× New Business Star – Recognized in ZoomInfo Revenue All Hands
     """)
-
