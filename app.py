@@ -3,22 +3,26 @@ import streamlit as st
 # --- PAGE CONFIG ---
 st.set_page_config(page_title="Balaji R - Data Analyst/Data Engineer Resume", layout="wide")
 
-# --- CUSTOM CSS for background and sidebar ---
+# --- CUSTOM CSS for background and fonts ---
 st.markdown("""
     <style>
         body {
             background-color: #f4f6f8;
+            font-family: 'Segoe UI', sans-serif;
         }
-        .css-1d391kg {  /* Sidebar header style */
+        .css-1d391kg {
             font-size: 24px !important;
             font-weight: 600 !important;
             color: #333333 !important;
         }
-        .css-10trblm {  /* Main header font */
+        .css-10trblm {
             color: #2c3e50 !important;
         }
         .block-container {
             padding-top: 2rem;
+        }
+        .stRadio > div {
+            font-size: 16px;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -40,7 +44,7 @@ with open("BalajiR_Resume.docx", "rb") as file:
         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
 
-# --- MAIN HEADER ONLY ON FIRST PAGE ---
+# --- HEADER ONLY ON FIRST PAGE ---
 if selected_section == "Profile Summary":
     st.title("Balaji R")
     st.markdown("""
@@ -57,7 +61,7 @@ if selected_section == "Profile Summary":
     st.write("""
     Strategic and detail-oriented Data Analyst with 2+ years of experience delivering data-backed insights that drive business performance and client success. 
     Skilled at understanding complex business contexts, identifying opportunities through data, and communicating insights with clarity and confidence. 
-    I bring a consulting mindset to every project—thinking beyond the immediate ask, aligning with business goals, and building trust through accuracy, ownership, and thoughtful analysis.
+    I bring a consulting mindset to every project—thinking beyond the immediate ask, aligning with business goals, and building trust through accuracy, ownership, and thoughtful analysis. 
     Passionate about solving real-world problems in fast-paced, impact-driven environments.
     """)
 
@@ -66,66 +70,72 @@ elif selected_section == "Professional Experience":
     st.subheader("ZoomInfo Technologies | Data Analyst I")
     st.write("**June 2023 – Present | Chennai, India**")
     st.markdown("""
-    - Collaborate with clients to understand requirements and deliver tailored data solutions  
-    - Built automation enabling $5.7M+ in deal closures  
-    - Led fix for Round Robin logic with team of 4  
-    - Managed enterprise/strategic accounts, supporting renewals and up-sells  
-    - Appointed Data Steward for critical requests  
-    - Solely handled end-to-end analysis for Grafana, TeamViewer, Employsure (ACVs: $212K, $70K, $194K)
+    - Collaborate with multiple clients on daily basis to understand their requirements, offer strategic feedback, and deliver data in requested formats  
+    - Developed and implemented an automation to address a product limitation, enabling $5.7M+ in deal closures and increasing ZoomInfo’s competitive value  
+    - Deal with high-value Enterprise and Strategic accounts, contributing to renewals, up-sells, and critical new business deals  
+    - Identified anomaly in Round Robin logic, led a team of 4 to redesign and successfully implement a scalable solution  
+    - Appointed as Data Steward to handle critical requests, ensuring consistent delivery of accurate, high-quality data  
+    - Solely handled end-to-end data and business analysis for Grafana, TeamViewer, and Employsure (Peninsula), directly supporting closed deals totaling $212K, $70K, and $194K in ACV
     """)
 
 elif selected_section == "Key Skills":
     st.header("Key Skills")
     st.markdown("""
-    - **Languages & Tools:** Python, SQL, Java  
-    - **Big Data:** PySpark, Databricks, Snowflake  
-    - **Visualization:** Tableau, Excel  
-    - **Data Analysis:** EDA, Data Cleaning, Storytelling  
-    - **ML Techniques:** Regression, Hypothesis Testing  
-    - **Libraries:** Pandas, NumPy, Seaborn, Scikit-learn  
-    - **Databases:** MySQL, PostgreSQL  
-    - **Tools:** Jupyter, VS Code, Salesforce, JIRA  
-    - **Soft Skills:** Communication, Ownership, Agile mindset
+    - **Programming Languages:** Python, SQL, Java  
+    - **Big Data & Distributed Compute:** PySpark, Databricks, Snowflake, Cyberduck  
+    - **Visualization Tools:** Tableau, Excel  
+    - **Data Analysis:** Data Cleaning, EDA, Business Insights, Data Storytelling  
+    - **Machine Learning:** Linear Regression, Logistic Regression, Lasso, Ridge, Hypothesis Testing  
+    - **Python Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn, Statsmodels, Itertools  
+    - **Data Querying:** DDL, DML, DQL, TCL, MySQL Workbench, PostgreSQL  
+    - **Environments:** Jupyter Notebook, Visual Studio Code, Sublime Text  
+    - **Enterprise Tools:** Confluence, JIRA, Salesforce, Docket AI  
+    - **Professional & Soft Skills:** Client Communication, Requirement Gathering, Business Understanding, Data Interpretation, Stakeholder Collaboration, Analytical Thinking, Problem-Solving, Cross-Functional Coordination, Data-Driven Decision Making, Leadership, Adaptability, Ownership, Time Management, Attention to Detail, Agile Mindset
     """)
 
 elif selected_section == "Academic Projects":
     st.header("Academic Projects")
-    st.subheader("1. Titanic Survival Prediction")
+    st.subheader("Project 1: Titanic Disaster - A Logistic Regression-based Survival Analysis")
     st.markdown("""
-    - Built a logistic regression model with 78% accuracy  
-    - Performed EDA, feature engineering, and model tuning  
-    - Tools: Python, Pandas, Seaborn, OOP
+    - **Source:** Kaggle  
+    - **Goal:** Examine variables that contributed to survival and use predictive modelling to predict individuals who survived the Titanic disaster  
+    - Conducted data profiling to assess structure, completeness, and suitability of the dataset  
+    - Built reusable data transformation modules for imputation, encoding, outlier removal, scaling, and splitting  
+    - Delivered a logistic regression model with 78% accuracy  
+    - **Skills:** Python, EDA, Logistic Regression, Pandas, NumPy, Matplotlib, Seaborn, Confusion Matrix, OneHotEncoder, LabelEncoder, Z-score, Standardization, OOP
     """)
-    st.subheader("2. Used Car Price Prediction")
+    st.subheader("Project 2: Used Car Price Prediction – A Linear Regression Based Model")
     st.markdown("""
-    - Built a linear regression model (82% R², low MSE)  
-    - Conducted outlier removal, normalization, iterative tuning  
-    - Tools: Python, Pandas, MinMaxScaler
+    - **Source:** Kaggle  
+    - **Goal:** Build a predictive model to estimate used car prices for data-driven pricing decisions  
+    - Conducted EDA, handled duplicates, outliers (Z-score), and performed feature engineering  
+    - Achieved an R² of 82% and reduced MSE to 205  
+    - **Skills:** Python, EDA, Linear Regression, NumPy, Pandas, Matplotlib, Seaborn, MinMaxScaler, OneHotEncoder, LabelEncoder, Z-score, OOP
     """)
 
 elif selected_section == "Certifications & Hackathons":
     st.header("Certifications & Hackathons")
     st.markdown("""
-    - GLCA Data Science Hackathon (2023)  
-    - IEEE 24-Hour Coding Marathon (2019 & 2020)  
-    - HackerRank SQL Gold Badge  
+    - GLCA Data Science Hackathon program (2023)  
+    - IEEE 24 Hours Coding Marathon Program (2019 & 2020)  
+    - HackerRank SQL Gold badge  
     - Apache PySpark By Example  
     - Tableau Essential Training  
-    - SQL for Data Analysis
+    - SQL For Data Analysis, Intermediate SQL For Data Scientist
     """)
 
 elif selected_section == "Education":
     st.header("Education")
     st.markdown("""
-    - **Data Analytics**, Great Lakes Institute of Management – *2023*  
-    - **B.E. Computer Science**, Panimalar Engineering College – *2022 (89.60%)*  
-    - **12th Grade**, St. Joseph of Cluny – *2018 (87.3%)*  
-    - **10th Grade**, St. Joseph of Cluny – *2016 (96%)*  
+    - **Data Analytics**, Great Lakes Institute of Management – *2023* (Completed)  
+    - **B.E. Computer Science Engineering**, Panimalar Engineering College – *2022* (89.60%)  
+    - **12th Grade**, St. Joseph of Cluny MHSS – *2018* (87.3%)  
+    - **10th Grade**, St. Joseph of Cluny MHSS – *2016* (96%)
     """)
 
 elif selected_section == "Achievements":
     st.header("Achievements")
     st.markdown("""
-    - Dream Winner – Q2 2024 (Top Performer of the Quarter)  
-    - 5× New Business Star – Recognized in ZoomInfo Revenue All Hands
+    - Dream Winner – Q2 2024, ZoomInfo (Top Performer of the Quarter)  
+    - 5× New Business Star – Honored in Revenue All Hands for consistent top-tier performance
     """)
