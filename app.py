@@ -12,7 +12,7 @@ st.sidebar.title("Navigate")
 selected_section = st.sidebar.radio("Go to", sections)
 
 # Downloadable resume file
-with open("BalajiR_Resume_for_Download.docx", "rb") as file:
+with open("BalajiR_Resume.docx", "rb") as file:
     st.sidebar.download_button(
         label="📥 Download Resume (DOCX)",
         data=file,
